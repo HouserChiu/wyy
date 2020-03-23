@@ -19,10 +19,10 @@ headers = {
     'sec-fetch-site': 'same-origin',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',
 }
-url = "https://music.163.com/weapi/v1/play/record?csrf_token="
+url = "https://music.163.com/weapi/user/getfolloweds?csrf_token="
 
-def get_params_first(uid):
-    params_first = '{"uid": '+ uid +',"type":"-1","limit":"1000","offset":"0","total":"true","csrf_token":""}'
+def get_params_first(userId):
+    params_first = params_first = '{"userId":"%s","offset":"0","total":"true","limit":"20","csrf_token":""}'%userId
     return params_first
 params_second = "010001"
 params_third = "00e0b509f6259df8642dbc35662901477df22677ec152b5ff68ace615bb7b725152b3ab17a876aea8a5aa76d2e417629ec4ee341f56135fccf695280104e0312ecbda92557c93870114af6c9d05c4f7f0c3685b7a46bee255932575cce10b424d813cfe4875d3e82047b97ddef52741d546b8e289dc6935b3ece0462db0a22b8e7"
@@ -62,7 +62,7 @@ def get_encSEcKey(text):
     moudulus = params_third
     encSecKey = rsaEncrypt(pubKey, text, moudulus)
     return encSecKey
-uid = '50359783'
+uid = 10
 while True:
     text = "A"*16
     params = get_params(text,uid)
@@ -71,15 +71,28 @@ while True:
         "params": params,
         "encSecKey": encSecKey
     }
-    temp_data = json.loads(requests.post(url, data=formdata, headers=headers).content)['weekData']
+    temp_data = json.loads(requests.post(url, data=formdata, headers=headers).content)['followeds']
     length = len(temp_data)
     for eve_data in temp_data:
-        print(eve_data)
+        eve_data['userId']
     if length < 1000:
-
-        pass # 待修改
-
+        uid += 1
     else:
         break
 
 
+def foo():
+    print("starting...")
+    while True:
+        res = yield 4
+        print("res:",res)
+g = foo()
+print(next(g))
+print("*"*20)
+print(next(g))
+
+starting...
+4
+********************
+res: None
+4

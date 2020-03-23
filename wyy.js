@@ -10012,8 +10012,8 @@ setMaxDigits(20), dpl10 = 15, lr10 = biFromNumber(1e15), hexatrigesimalToChar = 
             Z8R = Z8R.replace("api", "weapi");
             e7d.method = "post";
             delete e7d.query;
+            alert(JSON.stringify(i7b)+'=='+brx0x(["流泪", "强"])+'=='+brx0x(Xs2x.md)+'=='+brx0x(["爱心", "女孩", "惊恐", "大笑"]))
 
-            alert(JSON.stringify(i7b) + "==" + brx0x(["流泪", "强"]) + "==" + brx0x(Xs2x.md) + "==" + brx0x(["爱心", "女孩", "惊恐", "大笑"]))
             var bVj8b = window.asrsea(JSON.stringify(i7b), brx0x(["流泪", "强"]), brx0x(Xs2x.md), brx0x(["爱心", "女孩", "惊恐", "大笑"]));
             e7d.data = k7d.cx8p({params: bVj8b.encText, encSecKey: bVj8b.encSecKey})
         }
